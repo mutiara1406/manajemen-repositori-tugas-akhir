@@ -9,47 +9,106 @@
         :root {
             --light-green: #89C99A;
             --dark-green: #38761D;
-            --bg-color: #f8f9fa;
-            --card-border: #e3e3e0;
+            --bg-color: #f5f7fa;
+            --card-border: #e1e8ed;
         }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            background-color: var(--bg-color);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: #2c3e50;
         }
+        
         .navbar-custom {
             background-color: #ffffff;
             border-bottom: 1px solid var(--card-border);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         .brand-text {
             color: var(--dark-green);
             font-weight: 700;
+            font-size: 1.2rem;
         }
+        
+        .nav-tabs {
+            border-bottom: 2px solid white;
+            gap: 0.5rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-top: -1rem;
+        }
+        
         .nav-tabs .nav-link {
-            color: #666;
-            border-bottom: 2px solid transparent;
+            color: #7f8c8d;
+            border: none;
+            border-bottom: 3px solid transparent;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            background: transparent;
+            font-size: 0.95rem;
+        }
+        .nav-tabs .nav-link:hover {
+            color: var(--dark-green);
+            border-bottom-color: var(--dark-green);
         }
         .nav-tabs .nav-link.active {
             color: var(--dark-green);
-            border-bottom: 3px solid var(--dark-green);
+            border-bottom-color: var(--dark-green);
             background-color: transparent;
         }
+        
         .btn-custom-green {
             background-color: var(--light-green);
             border-color: var(--light-green);
             color: #ffffff;
-            font-weight: 500;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
         }
         .btn-custom-green:hover {
             background-color: var(--dark-green);
             border-color: var(--dark-green);
             color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
         }
+        
+        .card {
+            border: 1px solid var(--card-border);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-radius: 0.75rem;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+        
         .card-header {
-            background-color: var(--light-green) !important;
-            color: white;
+            background-color: white !important;
+            border-bottom: 1px solid var(--card-border);
+            padding: 1.5rem;
         }
-        .form-control:focus {
+        .card-header h5 {
+            color: #2c3e50;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .form-control:focus, .form-select:focus {
             border-color: var(--light-green);
-            box-shadow: 0 0 0 0.25rem rgba(137, 201, 154, 0.25);
+            box-shadow: 0 0 0 0.2rem rgba(137, 201, 154, 0.1);
         }
         .badge-peminatan {
             font-size: 0.85rem;
@@ -76,13 +135,113 @@
             border-radius: 1rem;
             max-width: 70%;
         }
+        
+        .tab-content {
+            animation: fadeIn 0.4s ease-in;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .judul-card {
+            background: white;
+            padding: 1.5rem;
+            border: 1px solid var(--card-border);
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .judul-card:hover {
+            box-shadow: 0 6px 16px rgba(46, 204, 113, 0.15);
+            border-color: var(--light-green);
+            transform: translateY(-2px);
+        }
+        .judul-card h6 {
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+            font-size: 1rem;
+        }
+        .judul-card p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .table thead {
+            background-color: var(--bg-color);
+            border-bottom: 2px solid var(--card-border);
+        }
+        .table thead th {
+            font-weight: 700;
+            color: #2c3e50;
+            border: none;
+        }
+        .table tbody tr {
+            border-bottom: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+        }
+        .table tbody tr:hover {
+            background-color: var(--bg-color);
+        }
+
+        /* Pagination Styling */
+        .pagination {
+            gap: 0.25rem;
+        }
+        .page-link {
+            color: var(--dark-green);
+            border: 1px solid var(--card-border);
+            border-radius: 0.4rem;
+            padding: 0.5rem 0.75rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+        .page-link:hover {
+            background-color: var(--light-green);
+            border-color: var(--light-green);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 6px rgba(137, 201, 154, 0.3);
+        }
+        .page-item.active .page-link {
+            background-color: var(--dark-green);
+            border-color: var(--dark-green);
+            color: white;
+            box-shadow: 0 2px 8px rgba(56, 118, 29, 0.2);
+        }
+        .page-item.disabled .page-link {
+            color: #bdbdbd;
+            background-color: #f5f5f5;
+            border-color: #e0e0e0;
+            cursor: not-allowed;
+        }
+        .pagination + .text-center {
+            margin-top: 1rem;
+        }
     </style>
 </head>
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-custom">
-        <div class="container-fluid">
-            <a class="navbar-brand brand-text" href="#">📚 Repositori TA - UIN Suka</a>
+        <div class="container-fluid" style="max-width: 1100px; margin-left: auto; margin-right: auto; padding: 0 1rem;">
+            <a class="navbar-brand brand-text" href="#">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/UIN_Sunan_Kalijaga_Logo.svg/200px-UIN_Sunan_Kalijaga_Logo.svg.png" 
+                     alt="UIN Logo" style="height: 40px; margin-right: 0.75rem; display: inline-block;">
+                Repositori TA - UIN Suka
+            </a>
             <div class="ms-auto d-flex align-items-center">
                 <span class="navbar-text me-3 d-none d-md-inline">Selamat Datang!</span>
                 <a href="#" class="btn btn-sm btn-danger">Logout</a>
@@ -90,16 +249,17 @@
         </div>
     </nav>
 
-    <div class="container-fluid py-4">
-        <div class="row mb-3">
-            <div class="col">
-                <h3 style="color: var(--dark-green);">🎓 Portal Pengajuan Judul Tugas Akhir</h3>
-                <p class="text-muted">Kelola pengajuan, lihat dokumentasi, dan konsultasi dengan dosen Anda</p>
-            </div>
+    <div style="background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%); padding: 3rem 1rem; margin-bottom: 0;">
+        <div style="max-width: 1100px; margin: 0 auto;">
+            <h1 style="color: white; font-weight: 800; font-size: 2.5rem; margin: 0; letter-spacing: -1px; text-align: center;">
+                Manajemen Repositori Tugas Akhir
+            </h1>
         </div>
+    </div>
 
+    <div class="container-fluid" style="max-width: 1100px; margin-left: auto; margin-right: auto; padding: 0 1rem;">
         <!-- Tabs Navigation -->
-        <ul class="nav nav-tabs mb-4" id="pengajuanTabs" role="tablist">
+        <ul class="nav nav-tabs mb-4" id="pengajuanTabs" role="tablist" style="max-width: 100%; margin-left: auto; margin-right: auto;">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="kumpulan-judul-tab" data-bs-toggle="tab" 
                     data-bs-target="#kumpulan-judul" type="button" role="tab">
@@ -127,7 +287,7 @@
         </ul>
 
         <!-- Tabs Content -->
-        <div class="tab-content" id="pengajuanTabsContent">
+        <div class="tab-content" id="pengajuanTabsContent" style="max-width: 1100px; margin-left: auto; margin-right: auto;">
             
             <!-- TAB 1: KUMPULAN JUDUL -->
             <div class="tab-pane fade show active" id="kumpulan-judul" role="tabpanel">
@@ -136,36 +296,36 @@
                         <h5 class="mb-0">📚 Daftar Judul Tugas Akhir Terdahulu (2020+)</h5>
                     </div>
                     <div class="card-body">
-                        <form method="GET" class="mb-4">
+                        <form method="GET" class="mb-4" action="{{ route('pengajuan.index') }}">
                             <div class="row g-3">
                                 <div class="col-md-3">
                                     <label class="form-label fw-bold">Peminatan:</label>
                                     <select name="peminatan" class="form-select">
-                                        <option value="semua">-- Semua --</option>
-                                        <option value="sistem_informasi">Sistem Informasi</option>
-                                        <option value="sistem_cerdas">Sistem Cerdas</option>
-                                        <option value="rekayasa_perangkat_lunak">Rekayasa Perangkat Lunak</option>
-                                        <option value="jaringan_komputer">Jaringan Komputer</option>
+                                        <option value="semua" {{ $peminatan === 'semua' ? 'selected' : '' }}>-- Semua --</option>
+                                        <option value="sistem_informasi" {{ $peminatan === 'sistem_informasi' ? 'selected' : '' }}>Sistem Informasi</option>
+                                        <option value="sistem_cerdas" {{ $peminatan === 'sistem_cerdas' ? 'selected' : '' }}>Sistem Cerdas</option>
+                                        <option value="rekayasa_perangkat_lunak" {{ $peminatan === 'rekayasa_perangkat_lunak' ? 'selected' : '' }}>Rekayasa Perangkat Lunak</option>
+                                        <option value="jaringan_komputer" {{ $peminatan === 'jaringan_komputer' ? 'selected' : '' }}>Jaringan Komputer</option>
                                     </select>
                                 </div>
                                 <div class="col-md-3">
                                     <label class="form-label fw-bold">Arah Profesi:</label>
                                     <select name="arah_profesi" class="form-select">
-                                        <option value="semua">-- Semua --</option>
-                                        <option value="ilmuan">Ilmuan</option>
-                                        <option value="wirausaha">Wirausaha</option>
-                                        <option value="professional">Professional</option>
+                                        <option value="semua" {{ $arahProfesi === 'semua' ? 'selected' : '' }}>-- Semua --</option>
+                                        <option value="ilmuan" {{ $arahProfesi === 'ilmuan' ? 'selected' : '' }}>Ilmuan</option>
+                                        <option value="wirausaha" {{ $arahProfesi === 'wirausaha' ? 'selected' : '' }}>Wirausaha</option>
+                                        <option value="professional" {{ $arahProfesi === 'professional' ? 'selected' : '' }}>Professional</option>
                                     </select>
                                 </div>
                                 <div class="col-md-3">
                                     <label class="form-label fw-bold">Angkatan:</label>
                                     <select name="angkatan" class="form-select">
                                         <option value="">-- Semua --</option>
-                                        <option value="2024">2024</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2020">2020</option>
+                                        <option value="2024" {{ request('angkatan') == '2024' ? 'selected' : '' }}>2024</option>
+                                        <option value="2023" {{ request('angkatan') == '2023' ? 'selected' : '' }}>2023</option>
+                                        <option value="2022" {{ request('angkatan') == '2022' ? 'selected' : '' }}>2022</option>
+                                        <option value="2021" {{ request('angkatan') == '2021' ? 'selected' : '' }}>2021</option>
+                                        <option value="2020" {{ request('angkatan') == '2020' ? 'selected' : '' }}>2020</option>
                                     </select>
                                 </div>
                                 <div class="col-md-3 d-flex align-items-end">
@@ -174,42 +334,49 @@
                             </div>
                         </form>
 
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <div class="card h-100 shadow-sm">
-                                    <div class="card-body">
-                                        <h6 class="card-title">Sistem Informasi Manajemen Apotek Berbasis Web</h6>
-                                        <p class="card-text small text-muted">Aplikasi desktop untuk pengelolaan data apotek dengan fitur inventori dan pelaporan</p>
-                                        <div class="mb-2">
-                                            <span class="badge bg-info badge-peminatan">Sistem Informasi</span>
-                                            <span class="badge bg-warning badge-peminatan">Professional</span>
-                                            <span class="badge bg-secondary badge-peminatan">2023</span>
+                        @if($judulList->count() > 0)
+                            <div class="row">
+                                @foreach($judulList as $judul)
+                                    <div class="col-md-6 mb-3">
+                                        <div class="card h-100 shadow-sm">
+                                            <div class="card-body">
+                                                <h6 class="card-title">{{ $judul->judul }}</h6>
+                                                <p class="card-text small text-muted">{{ $judul->deskripsi }}</p>
+                                                <div class="mb-2">
+                                                    <span class="badge bg-info badge-peminatan">
+                                                        @switch($judul->peminatan)
+                                                            @case('sistem_informasi') Sistem Informasi @break
+                                                            @case('sistem_cerdas') Sistem Cerdas @break
+                                                            @case('rekayasa_perangkat_lunak') Rekayasa Perangkat Lunak @break
+                                                            @case('jaringan_komputer') Jaringan Komputer @break
+                                                        @endswitch
+                                                    </span>
+                                                    <span class="badge bg-warning badge-peminatan">
+                                                        @switch($judul->arah_profesi)
+                                                            @case('ilmuan') Ilmuan @break
+                                                            @case('wirausaha') Wirausaha @break
+                                                            @case('professional') Professional @break
+                                                        @endswitch
+                                                    </span>
+                                                    <span class="badge bg-secondary badge-peminatan">{{ $judul->angkatan }}</span>
+                                                </div>
+                                                <small class="text-secondary">Oleh: <strong>{{ $judul->nama_penulis }}</strong> (NIM: {{ $judul->nim_penulis }})</small>
+                                            </div>
                                         </div>
-                                        <small class="text-secondary">Oleh: <strong>Ahmad Rizki</strong> (NIM: 20201001)</small>
                                     </div>
-                                </div>
+                                @endforeach
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="card h-100 shadow-sm">
-                                    <div class="card-body">
-                                        <h6 class="card-title">Klasifikasi Penyakit Tanaman Padi Menggunakan Deep Learning</h6>
-                                        <p class="card-text small text-muted">Sistem AI untuk identifikasi penyakit pada tanaman padi menggunakan CNN</p>
-                                        <div class="mb-2">
-                                            <span class="badge bg-info badge-peminatan">Sistem Cerdas</span>
-                                            <span class="badge bg-warning badge-peminatan">Ilmuan</span>
-                                            <span class="badge bg-secondary badge-peminatan">2023</span>
-                                        </div>
-                                        <small class="text-secondary">Oleh: <strong>Siti Fatimah</strong> (NIM: 20201005)</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-12 text-center mt-3">
-                                <button class="btn btn-outline-secondary">Tampilkan Lebih Banyak</button>
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    {{ $judulList->links('pagination.custom') }}
+                                </div>
                             </div>
-                        </div>
+                        @else
+                            <div class="alert alert-info text-center" role="alert">
+                                <p class="mb-0">📭 Tidak ada data judul yang sesuai dengan filter Anda. Coba ubah kriteria filter.</p>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
