@@ -12,13 +12,18 @@ class DokumentasiTA extends Model
         'judul',
         'nama_penulis',
         'nim_penulis',
+        'jenis_ta',
         'peminatan',
+        'dosen_pembimbing',
+        'prodi',
         'arah_profesi',
         'tahun_selesai',
         'abstrak_bahasa_indonesia',
         'abstrak_bahasa_inggris',
         'file_lembar_pengesahan',
         'file_skripsi_full_text',
+        'date_deposited',
+        'last_modified',
     ];
 
     protected $casts = [

@@ -11,6 +11,7 @@ class JudulTA extends Model
     protected $fillable = [
         'judul',
         'deskripsi',
+        'abstrak_bahasa_indonesia',
         'peminatan',
         'arah_profesi',
         'angkatan',

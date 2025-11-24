@@ -14,6 +14,7 @@ class ChatKonsultasi extends Model
         'dosen_id',
         'pesan',
         'pengirim',
+        'file_attachment',
     ];
 
     /**
